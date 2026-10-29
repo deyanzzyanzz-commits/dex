@@ -4,7 +4,7 @@ import "./App.css";
 const STORAGE_KEY = "careflow-queues";
 const CALL_KEY = "careflow-calling";
 const STAFF_KEY = "careflow-staff";
-const STAFF_PASSWORD = "petugas123";
+const STAFF_PASSWORD = "222321";
 
 const digitWords = [
   "nol",
