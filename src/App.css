@@ -97,6 +97,10 @@
   gap: 8px;
 }
 
+.navigation-guest {
+  display: none;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
