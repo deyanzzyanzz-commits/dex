@@ -4,7 +4,7 @@ import "./App.css";
 const STORAGE_KEY = "careflow-queues";
 const CALL_KEY = "careflow-calling";
 const STAFF_KEY = "careflow-staff";
-const STAFF_PASSWORD = "222321";
+const STAFF_PASSWORD = "petugas123";
 
 const digitWords = [
   "nol",
@@ -335,9 +335,9 @@ function App() {
           </div>
         </div>
 
-        <p className="nav-label">MENU UTAMA</p>
+        {isStaff && <p className="nav-label">MENU UTAMA</p>}
 
-        <nav className="navigation">
+        <nav className={`navigation ${isStaff ? "" : "navigation-guest"}`}>
           {isStaff && (
             <button
               type="button"
@@ -355,7 +355,7 @@ function App() {
             onClick={() => setPage("register")}
           >
             <span className="nav-icon">＋</span>
-            <span>Daftar Antrean</span>
+            <span>Buat Nomor Antrean</span>
           </button>
 
           {isStaff && (
@@ -402,7 +402,7 @@ function App() {
               {page === "dashboard"
                 ? "Dashboard"
                 : page === "register"
-                  ? "Pendaftaran Antrean"
+                  ? "Buat Nomor Antrean"
                   : page === "ticket"
                     ? "Tiket Antrean"
                     : "Data Antrean"}
@@ -581,14 +581,6 @@ function App() {
 
         {page === "register" && (
           <section className="panel form-panel">
-            <div className="section-heading">
-              <div>
-                <h2>Pendaftaran Pasien</h2>
-                <p>Lengkapi informasi untuk membuat nomor antrean.</p>
-              </div>
-              <div className="form-symbol">＋</div>
-            </div>
-
             <form className="queue-form" onSubmit={registerPatient}>
               <label htmlFor="patient-name">Nama lengkap pasien</label>
               <input
